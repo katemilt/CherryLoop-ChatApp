@@ -26,6 +26,14 @@ export default {
           DEFAULT: '#E08B92',
           100: '#FFEEEF',
           200: '#F5D4D5',
+          400: '#F2636F',
+          500: '#EC4856',
+        },
+        sage: {
+          DEFAULT: '#A3BE8E',
+          100: '#D4E7C5',
+          200: '#E6F9D8',
+          500: '#6D8A57',
         },
       },
       backgroundImage: {

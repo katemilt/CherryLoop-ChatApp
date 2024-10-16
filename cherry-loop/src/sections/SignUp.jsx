@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
     return (
       <div className="relative min-h-screen flex items-center justify-center px-6 py-9">
         {/* Container to wrap image with text and form */}
@@ -42,11 +42,6 @@ const Login = () => {
                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-peach-100">
                       Password
                     </label>
-                    <div className="text-sm">
-                      <a href="#" className="font-semibold text-sage-200 hover:text-peach-400">
-                        Forgot password?
-                      </a>
-                    </div>
                   </div>
                   <div className="mt-2">
                     <input
@@ -64,14 +59,14 @@ const Login = () => {
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-sage px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sage-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Sign in
+                  >Join Now
                   </button>
                 </div>
               </form>
               <p className="mt-10 text-center text-sm text-peach-200">
-                Not a member?{' '}
-                <Link to="/signup" className="font-semibold leading-6 text-sage-100 hover:text-peach-500">
-                    Join now!
+                Already have an account?{' '}
+                <Link to="/login" className="font-semibold leading-6 text-sage-100 hover:text-peach-500">
+                    Sign in!
                 </Link>
                 </p>
             </div>
@@ -81,5 +76,4 @@ const Login = () => {
     );
   };
   
-  export default Login;
-  
+  export default SignUp;

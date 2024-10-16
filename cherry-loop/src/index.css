@@ -19,8 +19,9 @@ body {
   }
 
   .head-text {
-    @apply sm:text-4xl text-3xl font-semibold text-peach-100;
+    @apply md:text-3xl sm:text-2xl text-2xl font-semibold text-peach-100;
   }
+  
 
   .nav-ul {
     @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
