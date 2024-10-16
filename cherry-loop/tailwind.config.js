@@ -22,6 +22,11 @@ export default {
           600: '#AFB0B6',
           500: '#62646C',
         },
+        peach: {
+          DEFAULT: '#E08B92',
+          100: '#FFEEEF',
+          200: '#F5D4D5',
+        },
       },
       backgroundImage: {
         terminal: "url('/assets/terminal.png')",

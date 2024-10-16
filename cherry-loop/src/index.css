@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/general-sans');
+@import url('https://fonts.cdnfonts.com/css/white-bear-lake');
 
 @tailwind base;
 @tailwind components;
@@ -9,8 +9,8 @@
 }
 
 body {
-  background: #010103;
-  font-family: 'General Sans', sans-serif;
+  background: linear-gradient(180deg, #f5d4d5 10%, #e08b92 90%);
+  font-family: 'White Bear Lake', sans-serif;
 }
 
 @layer utilities {
@@ -19,7 +19,7 @@ body {
   }
 
   .head-text {
-    @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
+    @apply sm:text-4xl text-3xl font-semibold text-peach-100;
   }
 
   .nav-ul {
