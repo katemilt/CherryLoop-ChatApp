@@ -1,7 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebase';
 
 const SignUp = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      setLoading(false);
+      navigate('/login');  // Redirect after successful signup
+    } catch (err) {
+      setLoading(false);
+      setError('Failed to create an account. Please try again.');
+    }
+  };
+
     return (
       <div className="relative min-h-screen flex items-center justify-center px-6 py-9">
         {/* Container to wrap image with text and form */}
@@ -20,7 +42,8 @@ const SignUp = () => {
           {/* Right Column: Form */}
           <div className="sm:w-1/2">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form action="#" method="POST" className="space-y-6">
+              {error && <div className="text-red-500">{error}</div>}
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium leading-6 text-peach-100">
                     Email address
@@ -32,6 +55,8 @@ const SignUp = () => {
                       type="email"
                       required
                       autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="block w-full rounded-full border-0 py-1.5 text-peach shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-peach sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -50,6 +75,8 @@ const SignUp = () => {
                       type="password"
                       required
                       autoComplete="current-password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       className="block w-full rounded-full border-0 py-1.5 text-peach shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-peach sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -59,7 +86,9 @@ const SignUp = () => {
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-sage px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sage-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Join Now
+                    disabled={loading}
+                  >
+                    {loading ? 'Creating account...' : 'Join now'}
                   </button>
                 </div>
               </form>
