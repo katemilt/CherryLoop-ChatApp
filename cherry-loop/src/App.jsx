@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './sections/Login.jsx';
 import SignUp from './sections/SignUp.jsx';
+import Dashboard from './sections/Dashboard.jsx';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
           <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root path to login */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* Add other routes here */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          
         </Routes>
       </Router>
     </main>
